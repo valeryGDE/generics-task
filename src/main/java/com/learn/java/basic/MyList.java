@@ -2,7 +2,7 @@ package com.learn.java.basic;
 
 import java.util.Comparator;
 
-public interface MyList<T extends Number> {
+public interface MyList<T> {
 
     void add(T obj);
 
@@ -14,8 +14,8 @@ public interface MyList<T extends Number> {
 
     void sort();
 
-    void sort(Comparator<T> comparator);
+//    void sort(Comparator<T> comparator);
 
-//    void sort(Comparator<? super T> comparator);
+    void sort(Comparator<? super T> comparator);
 
 }

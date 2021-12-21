@@ -1,39 +1,51 @@
 package com.learn.java.basic;
 
-public class Mark <T1, T2>{
+import java.math.BigDecimal;
+import java.util.Objects;
 
-    private T1 mark;
-    private T2 comment;
+public class Mark<T extends Number> implements Comparable<Mark<T>> {
+
+    private T mark;
 
     public Mark() {
     }
 
-    public Mark(T1 mark, T2 comment) {
+    public Mark(T mark) {
         this.mark = mark;
-        this.comment = comment;
     }
 
-    public T1 getMark() {
+    public T getMark() {
         return mark;
     }
 
-    public void setMark(T1 mark) {
+    public void setMark(T mark) {
         this.mark = mark;
     }
 
-    public T2 getComment() {
-        return comment;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Mark<?> mark1 = (Mark<?>) o;
+        return Objects.equals(mark, mark1.mark);
     }
 
-    public void setComment(T2 comment) {
-        this.comment = comment;
+    @Override
+    public int hashCode() {
+        return Objects.hash(mark);
     }
 
     @Override
     public String toString() {
         return "Mark{" +
                 "mark=" + mark +
-                ", comment=" + comment +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Mark<T> o) {
+        BigDecimal b1 = new BigDecimal(mark.doubleValue());
+        BigDecimal b2 = new BigDecimal(o.mark.doubleValue());
+        return b1.compareTo(b2);
     }
 }

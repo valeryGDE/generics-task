@@ -1,31 +1,30 @@
 package com.learn.java.basic;
 
-import com.learn.java.basic.comparator.NumberComparator;
+import com.learn.java.basic.comparator.MarkComparator;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Mark <Integer, String> mark1 = new Mark<Integer, String>(10, "Good job");
-        Mark <Character, Character> mark2 = new Mark<Character, Character>('+', 'g');
-        System.out.println(mark1.toString());
-        System.out.println(mark2.toString());
-
-
-        MyArrayList<Integer> myArrayList = new MyArrayList<>();
-        myArrayList.add(3);
-        myArrayList.add(2);
-        myArrayList.add(1);
-        myArrayList.add(4);
-        myArrayList.add(10);
-        myArrayList.add(8);
-        myArrayList.add(7);
-        myArrayList.add(6);
-        myArrayList.add(9);
-        myArrayList.add(5);
+        MyArrayList<Mark<Number>> myArrayList = new MyArrayList<>();
+        myArrayList.add(new Mark<>(3));
+        myArrayList.add(new Mark<>(2));
+        myArrayList.add(new Mark<>(1));
+        myArrayList.add(new Mark<>(4));
+        myArrayList.add(new Mark<>(10));
+        myArrayList.add(new Mark<>(8));
+        myArrayList.add(new Mark<>(7));
+        myArrayList.add(new Mark<>(6));
+        myArrayList.add(new Mark<>(9));
+        myArrayList.add(new Mark<>(5));
+        myArrayList.add(new Mark<>(10.00000000001112));
+        myArrayList.add(new Mark<>(10.00000000001111));
         System.out.println(myArrayList);
 
-        myArrayList.add(2, 33);
+        myArrayList.sort();
+        System.out.println(myArrayList);
+
+        myArrayList.add(2, new Mark<>(33));
         System.out.println(myArrayList);
 
         myArrayList.remove();
@@ -34,7 +33,7 @@ public class Main {
         myArrayList.remove(2);
         System.out.println(myArrayList);
 
-        myArrayList.sort(new NumberComparator<>());
+        myArrayList.sort(new MarkComparator());
         System.out.println(myArrayList);
     }
 }
