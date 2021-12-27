@@ -64,8 +64,9 @@ public class MyArrayList<T> implements MyList<T> {
     }
 
     @Override
-    public void sort(Comparator<? super T> comparator) {
-        Arrays.sort((T[]) myArrayList, comparator);
+    public void sort(Comparator<?> comparator) {
+        Comparator<? super T> comp = (Comparator<? super T>) comparator;
+        Arrays.sort((T[]) myArrayList, 0, currentFreeIndex, comp);
     }
 
     @Override

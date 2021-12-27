@@ -14,8 +14,8 @@ public interface MyList<T> {
 
     void sort();
 
-//    void sort(Comparator<T> comparator);
+    void sort(Comparator<?> comparator);
 
-    void sort(Comparator<? super T> comparator);
+//    void sort(Comparator<? super T> comparator);
 
 }

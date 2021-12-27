@@ -33,7 +33,7 @@ public class Main {
         myArrayList.remove(2);
         System.out.println(myArrayList);
 
-        myArrayList.sort(new MarkComparator());
+        myArrayList.sort(new MarkComparator<Mark<Number>>());
         System.out.println(myArrayList);
     }
 }
